@@ -1,0 +1,54 @@
+<%= form_with(model: product, data: { controller: 'checkbox-select-all' }) do |form| %>
+  <%# Errors %>
+  <% if product.errors.any? %>
+    <div class="card" style="width: 20rem;">
+      <div class="alert alert-danger">Sorry.</div>
+      <div class="card-body">
+        <h4 class="card-title"><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h4>
+        <ul>
+          <% product.errors.each do |error| %>
+            <li class="card-text text-danger"><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="alert alert-danger" style="margin-bottom: 0"></div>
+    </div>
+  <% end %>
+  <%# Form Start %>
+  <div class="row">
+    <div class="col-4 margin">
+      <fieldset class="form-group ">
+        <%= form.label :price %>
+        <%= form.text_field :price, class:"input-block" %>
+      </fieldset>
+    </div>
+    <div class="col-4 margin">
+      <fieldset class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class:"input-block" %>
+      </fieldset>
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <legend>Categories</legend>
+    <div class="row">
+      <div class="col-12">
+        <label class="paper-check">
+          <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+          <span>Select/Deselect All</span>
+        </label>
+      </div>
+      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+        <div class="col-4">
+          <%= b.label do %>
+            <%= b.check_box data: { checkbox_select_all_target: "checkbox" } %>
+            <%= b.text %>
+          <% end %>
+        </div>
+      <% end %>
+      <div>
+      </fieldset>
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>

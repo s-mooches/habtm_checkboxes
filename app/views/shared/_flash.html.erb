@@ -1,0 +1,7 @@
+<% flash.each do |key, value| %>
+  <input class="alert-state" id="alert-1" type="checkbox">
+  <div class="<%= flash_class(key) %> no-radius fade in dismissible">
+    <strong><%= flash_prefix(key)%></strong>&nbsp;<%= value %>
+    <label class="btn-close" for="alert-1">X</label>
+  </div>
+<% end %>

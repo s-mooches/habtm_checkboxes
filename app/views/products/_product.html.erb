@@ -1,0 +1,18 @@
+  <p>
+    <strong>Price:</strong>
+    <%= product.price %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <h6>Categories</h6>
+  <ul>
+    <% product.categories.each do |category| %>
+      <li>
+        <%= category.name %>
+      </li>
+    <% end %>
+  </ul>
+

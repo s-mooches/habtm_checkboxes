@@ -1,0 +1,19 @@
+      <label for="product_category_ids_<%= category.id%>" class="paper-check">
+            <input 
+              type="checkbox"
+              name="product[category_ids][]"
+              id="product_category_ids_<%= category.id%>"
+              value="<%= category.id%>"
+              data-checkbox-select-all-target="checkbox" 
+              <%= product.category_ids.include?(category.id) ? "checked" : nil%> 
+            />
+<span><%= category.name %></span>
+</label>
+<label class="paper-check" for="product_category_ids_6">
+  <input data-checkbox-select-all-target="checkbox" type="checkbox" value="6" name="product[category_ids][]" id="product_category_ids_6">
+  well-modulated
+</label>
+<label for="product_category_ids_6">
+  <input data-checkbox-select-all-target="checkbox" type="checkbox" value="6" name="product[category_ids][]" id="product_category_ids_6">
+  well-modulated
+</label>
