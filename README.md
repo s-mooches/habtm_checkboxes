@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 # habtm_checkboxes
 # habtm_checkboxes
+# habtm_checkboxes
